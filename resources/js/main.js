@@ -149,5 +149,26 @@ while(nomer != null) {
 
 			alert("Сумма = " + extractCurrencyValue(a) );
 		}
+		break;
+
+	// Шестой номер
+
+		case "1.6": {
+
+			let a1 = prompt("Введите число");
+			let	a = parseInt(a1);
+
+			if (a > 0)
+				alert(1)
+			else 
+				if (a < 0)
+					alert(-1)
+				else 
+					if (a == 0)
+						alert(0)
+					else
+						alert("Error");
+		}
+		break;
 	}
 }
