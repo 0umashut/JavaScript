@@ -14,7 +14,7 @@ function sumeven(a, b) {
 function max(a, b) {
 
 	if (a > b)
-		return(a);
+		return(a)
 	else
 		return(b);
 }
@@ -22,7 +22,7 @@ function max(a, b) {
 function min(a, b) {
 
 	if (a < b)
-		return(a);
+		return(a)
 	else
 		return(b);
 }
@@ -33,14 +33,18 @@ function ucFirst(a) {
 	return(str);
 }
 
+function extractCurrencyValue(a) {
+
+	return( parseInt( a.slice(1) ) );
+}
+
 // Выборка
 
-let n = 1;
+let nomer = "";
 
-while(n != 0) {
+while(nomer != null) {
 
-	let nomer = prompt("Введите номер задания ([номер раздела].[номер задания]), 0 - чтобы прекратить", '');
-	n = parseInt(nomer);
+	nomer = prompt("Введите номер задания ([номер раздела].[номер задания])", '');
 
 	switch(nomer) {
 
@@ -107,7 +111,7 @@ while(n != 0) {
 			let b1 = prompt("Введите натуральное число b >= a", '');
 			let b = parseInt(b1);
 
-			console.log("Сумма всех четных чисел в интервале [" + a + "," + b + "] = " + sumeven(a, b));
+			console.log("Сумма всех четных чисел в интервале [" + a + "," + b + "] = " + sumeven(a, b) );
 		}
 		break;
 
@@ -123,7 +127,7 @@ while(n != 0) {
 			let c1 = prompt("Введите число c", '');
 			let c = parseInt(c1);
 
-			console.log("Самое большое число - " + max( max(a, b), c) + ", самое маленькое - " + min( min(a, b), c));
+			console.log("Самое большое число - " + max( max(a, b), c) + ", самое маленькое - " + min( min(a, b), c) );
 		}
 		break;
 
@@ -132,9 +136,18 @@ while(n != 0) {
 		case "1.4": {
 
 			let a = prompt("Введите текст с маленькой буквы");
-			
-			alert(ucFirst(a));
+
+			alert( ucFirst(a) );
 		}
 		break;
+
+	// Пятый номер
+
+		case "1.5": {
+
+			let a = prompt("Введите стоимость в формате [знак валюты][сумма]");
+
+			alert("Сумма = " + extractCurrencyValue(a) );
+		}
 	}
 }
