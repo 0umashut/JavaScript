@@ -11,6 +11,22 @@ function sumeven(a, b) {
 	return(c);
 }
 
+function max(a, b) {
+
+	if (a > b)
+		return(a);
+	else
+		return(b);
+}
+
+function min(a, b) {
+
+	if (a < b)
+		return(a);
+	else
+		return(b);
+}
+
 // Выборка
 
 let nomer = prompt("Введите номер задания ([номер раздела].[номер задания])", '');
@@ -18,6 +34,7 @@ let nomer = prompt("Введите номер задания ([номер раз
 switch(nomer) {
 
 // Первый номер
+
 	case "1.1": {
 
 		let a = prompt("Введите любую цифру", '');
@@ -57,7 +74,7 @@ switch(nomer) {
 				break;
 		}
 	}
-		break;
+	break;
 
 // Второй номер
 
@@ -69,8 +86,26 @@ switch(nomer) {
 		let b1 = prompt("Введите натуральное число b >= a", '');
 		let b = parseInt(b1);
 
-		alert(`Сумма всех четных чисел в интервале [${a},${b}] = ${sumeven(a, b)}`);
+		alert("Сумма всех четных чисел в интервале [" + a + "," + b + "] = " + sumeven(a, b));
 
 	}
+	break;
+
+// Третий номер
+	
+	case "1.3": {
+		let a1 = prompt("Введите число a", '');
+		let a = parseInt(a1); 
+
+		let b1 = prompt("Введите число b", '');
+		let b = parseInt(b1);
+
+		let c1 = prompt("Введите число c", '');
+		let c = parseInt(c1);
+
+		alert("Самое большое число - " + max(max(a, b), c) + ", самое маленькое - " + min(min(a, b), c));
+
+	}
+	break;
 }
 
