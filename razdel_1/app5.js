@@ -1,5 +1,5 @@
 p = document.createElement('p');
-document.body.after(p);
+document.body.append(p);
 
 function extract() {
 
