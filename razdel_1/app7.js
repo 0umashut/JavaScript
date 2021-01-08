@@ -15,15 +15,16 @@ function with1() {
 	document.getElementById("in").onchange = function() {
 
 		let a1 = parseInt( document.getElementById("in").value );
-		if( a1 != (15, 89) ) {
+
+		if( !(a1 <= 14) == true && !(a1 >= 90)) {
 
 			document.body.append(res);
-			res.innerHTML = "Да";
+			res.innerHTML = "Возраст > 14 и < 90";
 		}
 		else {
 
 			document.body.append(res);
-			res.innerHTML = "Нет";
+			res.innerHTML = "Возраст < 14 или > 90";
 		}
 	}
 
@@ -31,7 +32,24 @@ function with1() {
 
 function without() {
 
+	p.innerHTML = "Введите возраст"
+	document.body.append(ind);
 
+	document.getElementById("in").onchange = function() {
+
+		let a1 = parseInt( document.getElementById("in").value );
+
+		if( (a1 > 14) && (a1 < 90)) {
+
+			document.body.append(res);
+			res.innerHTML = "Возраст > 14 и < 90";
+		}
+		else {
+
+			document.body.append(res);
+			res.innerHTML = "Возраст <= 14 или >= 90";
+		}
+	}
 }
 
 function selector(a) {
