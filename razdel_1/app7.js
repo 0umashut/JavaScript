@@ -16,7 +16,7 @@ function with1() {
 
 		let a1 = parseInt( document.getElementById("in").value );
 
-		if( !(a1 <= 14) == true && !(a1 >= 90)) {
+		if( !(a1 <= 14) && !(a1 >= 90)) {
 
 			document.body.append(res);
 			res.innerHTML = "Возраст > 14 и < 90";
