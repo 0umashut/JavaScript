@@ -63,7 +63,7 @@ function fun(a) {
 				m.set(i, Math.random() * (100 - 0) + 0);
 
 			for (i = 0; i < b; i++)
-				console.log("Элемент №" + i + " = " + m.get(i));
+				console.log("Элемент №" + (i + 1) + " = " + m.get(i));
 		break;
 		case "6":
 
