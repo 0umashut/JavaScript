@@ -3,17 +3,17 @@ inp.type = "text";
 
 function getdata(n) {
 
-	a = parseInt(n);
+	n = parseInt(n);
 
 	let klass = {};
 
-	for (let i = 1; i <= a; i++){
+	for (let i = 1; i <= n; i++){
 
 		inp.id = "id" + i;
 		inp.placeholder = "name";
 		document.body.append(inp);
 
-		document.getElementById("id" + i).onkeypress = function(k) {
+		document.getElementById(inp.id).onkeypress = function(k) {
 
 			if (k.keyCode == 13) {
 

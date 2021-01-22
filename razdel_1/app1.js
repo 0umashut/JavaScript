@@ -1,38 +1,40 @@
-p = document.createElement('p');
+const p = document.createElement('p');
 
-function fun(chr) {
-
+const numberToWord = (number) => {
 	document.body.append(p);
-	switch(chr) {
-		case "0":
+	switch(Number(number)) {
+		case 0:
 			p.innerHTML = "Ноль";
-		break;
-		case "1":
+			break;
+		case 1:
 			p.innerHTML = "Один";
-		break;
-		case "2":
+			break;
+		case 2:
 			p.innerHTML = "Два";
-		break;
-		case "3":
+			break;
+		case 3:
 			p.innerHTML = "Три";
-		break;
-		case "4":
+			break;
+		case 4:
 			p.innerHTML = "Четыре";
-		break;
-		case "5":
+			break;
+		case 5:
 			p.innerHTML = "Пять";
-		break;
-		case "6":
+			break;
+		case 6:
 			p.innerHTML = "Шесть";
-		break;
-		case "7":
+			break;
+		case 7:
 			p.innerHTML = "Семь";
-		break;
-		case "8":
+			break;
+		case 8:
 			p.innerHTML = "Восемь";
-		break;
-		case "9":
+			break;
+		case 9:
 			p.innerHTML = "Девять";
-		break;
+			break;
+		default: 
+			p.innerHTML = "Ошибка";
+			break;
 	}
 }
