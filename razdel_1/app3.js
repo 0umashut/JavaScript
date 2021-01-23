@@ -1,16 +1,19 @@
-let p = document.createElement('p');
+const p = document.createElement('p');
 document.body.after(p);
+let min = 0;
+let max = 0;
 
-function minmax() {
+const minMax = () => {
+	let a = Number(document.getElementById('a').value);
+	let b = Number(document.getElementById('b').value);
+	let c = Number(document.getElementById('c').value);
 
-	let a1 = document.getElementById('a').value;
-	let a = parseInt(a1);
+	a < b ? a < c ? min = a : min = c : b < c ? min = b : min = c;
+	a > b ? a > c ? max = a : max = c : b > c ? max = b : max = c;
+	
+	return `Наибольшее число из a, b, и c - ${max}, наименьшее - ${min}`;
+}
 
-	let b1 = document.getElementById('b').value;
-	let b = parseInt(b1);
-
-	let c1 = document.getElementById('c').value;
-	let c = parseInt(c1);
-
-	p.innerHTML = "Наибольшее число - " + Math.max(a, b, c) + ", наименьшее - " + Math.min(a, b, c);
+const show = () => {
+	p.innerHTML = minMax();
 }
