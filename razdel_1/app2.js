@@ -1,24 +1,29 @@
-p = document.createElement('p');
-document.body.after(p);
+const p = document.createElement('p');
+document.body.append(p);
 
-function res() {
+const sumParOfInterval = (a, b) => {
+    let result = 0;
 
-	let b1 = document.getElementById('b').value;
-	let b = parseInt(b1);
+    if (a > b) {
+        return "Ошибка, a > b";
+    }
 
-	let a1 = document.getElementById('a').value;
-	let a = parseInt(a1);
+    if (a % 2 === 0) {
+        for (let i = a; i <= b; i += 2) {
+            result += i;
+        }
+    } else {
+        for (let i = a + 1; i <= b; i += 2) {
+            result += i;
+        }
+    }
+    return `Сумма чисел в интервале [${a}, ${b}]  = ` + result;
+}
 
-	if(a > b)
-		p.innerHTML = "Ошибка, a > b";
-	else {
-		let c = 0;
-		let i = 0;
-		for (i = a; i <= b; i++) {
-			if (i % 2 == 0) 
-				c += i;
-		}
-		p.innerHTML = `Сумма четных чисел в интервале [${a}, ${b}] находится в консоли`;
-		console.log("Сумма = " + c);
-	}
+const showResult = () => {
+    let a = Number(document.getElementById('a').value);
+    let b = Number(document.getElementById('b').value);
+    let finalResult = sumParOfInterval(a, b);
+    p.innerHTML = finalResult;
+    console.log(finalResult);
 }
