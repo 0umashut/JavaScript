@@ -1,17 +1,15 @@
-p = document.createElement('p');
+const p = document.createElement('p');
 document.body.append(p);
 
-function extract() {
-
-	let ind = document.getElementById('curr').value;
-
-	if(Number.isInteger( parseInt( ind.charAt(0) ) ))
-		p.innerHTML = "Ошибка, введенный формат не соответствует требуемому"
-	else
-		p.innerHTML = "Сумма = " + extractCurrencyValue(ind);
+const extract = () => {
+	let currency = document.getElementById('currency').value;
+	for (let i = 0; i < currency.length; i++) { 
+		if(currency.charAt(i) === "$") {
+			p.innerHTML = "Сумма = " + extractCurrencyValue(currency, i);
+		}
+	}
 }
 
-function extractCurrencyValue(str) {
-
-	return( parseInt( str.slice(1) ) );
+const extractCurrencyValue = (str, exclamation) => {
+	return str.slice(0, exclamation) + str.slice(exclamation + 1);
 }
