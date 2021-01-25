@@ -1,16 +1,18 @@
-function fun() {
+const whatTypeOfNumber = (a) => {
+	if (a > 0) {
+		return 1;
+	}
+	if (a < 0) {
+		return -1;
+	}
+	if (a == 0) {
+		return 0;
+	}
+	if (!Number(a)) {
+		return "Error!";
+	}
+}
 
-	let a1 = prompt("Введите число");
-	let	a = parseInt(a1);
-
-	if (a > 0)
-		alert(1)
-	else 
-		if (a < 0)
-			alert(-1)
-		else 
-			if (a == 0)
-				alert(0)
-			else
-				alert("Error");
+const launch = () => {
+	alert(whatTypeOfNumber(prompt('Введите число')));
 }
