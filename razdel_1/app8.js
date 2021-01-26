@@ -1,25 +1,47 @@
-p = document.createElement('p');
+const p = document.createElement('p');
+const username = "user";
+const password = "qwerty";
 
-function check() {
+const checkUsername = (usernameToCheck) => {
+	if (!usernameToCheck) {
+		return -2;
+	}
+	if (usernameToCheck === username) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
 
+const checkPassword = (passwordToCheck) => {
+	if (!passwordToCheck) {
+		return -2;
+	}
+	if (passwordToCheck === password) {
+		return 1;
+	} else {
+		return 0;
+	}
+}
+
+const checkMain = () => {
 	document.body.append(p);
+	let enteredUsername = document.getElementById('user').value;
+	let enteredPassword = document.getElementById('pass').value;
+	let checker = checkUsername(enteredUsername) + checkPassword(enteredPassword);
 
-	let usr0 = "user";
-
-	let pass0 = "qwerty";
-
-	let usr = document.getElementById('usr').value;
-
-	let pass = document.getElementById('pass').value;
-
-	if (usr0 == usr)
-		if (pass0 == pass)
-			p.innerHTML = "Привет"
-		else
-			p.innerHTML = "Неправильный пароль"
-	else
-		if (pass0 == pass)
-			p.innerHTML = "Неправильный username"
-		else
-			p.innerHTML = "Ошибка валидации"
+	switch (checker) {
+		case 2:
+			p.innerHTML = "Привет";
+			break;
+		case 1:
+			p.innerHTML = "Что-то введено неправильно";
+			break;
+		case 0:
+			p.innerHTML = "Все введено неправильно";
+			break;
+		default:
+			p.innerHTML = "Unexpected Error";
+			break;
+	}
 }

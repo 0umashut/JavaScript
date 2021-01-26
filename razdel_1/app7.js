@@ -1,65 +1,43 @@
-p = document.createElement('p');
-document.body.append(p);
+const p = document.createElement('p');
+const result = document.createElement('p');
+result.id = "result";
+const input = document.createElement('input');
+input.id = "in";
+input.type = "text";
+const minAge = 14;
+const maxAge = 90;
+const returnTrue = `Возраст > ${minAge} и < ${maxAge}`;
+const returnFalse = `Возраст <= ${minAge} или >= ${maxAge}`;
 
-res = document.createElement('p');
-
-ind = document.createElement('input');
-ind.id = "in";
-ind.type = "text";
-
-function with1() {
-
-	p.innerHTML = "Введите возраст"
-	document.body.append(ind);
-
-	document.getElementById("in").onchange = function() {
-
-		let a1 = parseInt( document.getElementById("in").value );
-
-		if( !(a1 <= 14) && !(a1 >= 90)) {
-
-			document.body.append(res);
-			res.innerHTML = "Возраст > 14 и < 90";
-		}
-		else {
-
-			document.body.append(res);
-			res.innerHTML = "Возраст < 14 или > 90";
-		}
-	}
-
+const withNot = (age) => {
+	return !((age <= minAge) && (age >= maxAge)) ? returnTrue : returnFalse;
 }
 
-function without() {
-
-	p.innerHTML = "Введите возраст"
-	document.body.append(ind);
-
-	document.getElementById("in").onchange = function() {
-
-		let a1 = parseInt( document.getElementById("in").value );
-
-		if( (a1 > 14) && (a1 < 90)) {
-
-			document.body.append(res);
-			res.innerHTML = "Возраст > 14 и < 90";
-		}
-		else {
-
-			document.body.append(res);
-			res.innerHTML = "Возраст <= 14 или >= 90";
-		}
+const withoutNot = (age) => {
+	if ((age > minAge) && (age < maxAge)) {
+		return `Возраст > ${minAge} и < ${maxAge}`;
+	} else {
+		return `Возраст <= ${minAge} или >= ${maxAge}`;
 	}
 }
 
-function selector(a) {
-
-	switch(a) {
-		case "1":
-			with1();
-		break;
-		case "2":
-			without();
-		break;
+const choice = (option) => {
+	document.body.append(p);
+	p.innerHTML = "Введите возраст";
+	document.body.append(input);
+	document.body.append(result);
+	let inputAge = Number(document.getElementById("in").value);
+	document.getElementById("in").onchange = () => {
+		switch(Number(option)) {
+			case 1:
+				result.innerHTML = withNot(inputAge);
+				break;
+			case 2:
+				result.innerHTML = withoutNot(inputAge);
+				break;
+			default:
+				result.innerHTML = "Error";
+				break;
+		}
 	}
 }
