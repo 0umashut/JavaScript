@@ -1,37 +1,30 @@
 let i = 0;
+let resultIterator = 0;
+const checkConsole = document.createElement('p');
 
-let chk = document.createElement('p');
+const divisors = (numberToGetDividersFrom) => {
+	const number = Number(numberToGetDividersFrom);
+	let resultId = "";
 
-function dividers(ch) {
-
-	let a = parseInt(ch);
-	let b = 0;
-	let k = "";
-
-	if (i != 0)
-		for (; 1 <= i; i--) {
-
-			k = "p" + i;
-			document.getElementById(k).remove();
-		}
-
-	for (b = 1; b <= a; b++) {
-
-		if ( (a % b) == 0) {
-
-			i++;
-
-			k = "p" + i;
-
-			console.log(b);
-
-			k = document.createElement('p');
-
-			document.body.append(k);
-			k.id = "p" + i;
-			k.innerHTML = "Делитель №" + i + " = " + b;
+	if (resultIterator != 0) {
+		for (; 1 <= resultIterator; resultIterator--) {
+			resultId = "result" + resultIterator;
+			document.getElementById(resultId).remove();
 		}
 	}
-	document.body.append(chk);
-	chk.innerHTML = "Проверьте консоль"
+
+	for (i = 1; i <= number; i++) {
+		if ((number % i) === 0) {
+			resultId = "result" + i;
+			console.log(i);
+			resultId = document.createElement('p');
+			document.body.append(resultId);
+			resultId.id = "result" + ++resultIterator;
+			resultId.innerHTML = "Делитель №" + resultIterator + " = " + i;
+		}
+	}
+
+	document.body.append(checkConsole);
+	checkConsole.innerHTML = "Проверьте консоль";
+	console.log(i);
 }
